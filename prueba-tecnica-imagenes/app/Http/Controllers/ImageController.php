@@ -10,7 +10,7 @@ class ImageController extends Controller
 {
     public function index(Request $request)
     {
-        $images = Image::paginate(10);  // O usa all() si prefieres cargar todas
+        $images = Image::paginate(10);
     return view('images.index', compact('images'));
     }
 
@@ -79,15 +79,13 @@ class ImageController extends Controller
 {
     $image = Image::findOrFail($id);
 
-    // Eliminar la imagen del almacenamiento
+
     if (file_exists(public_path('storage/' . $image->url_img))) {
-        unlink(public_path('storage/' . $image->url_img)); // Elimina el archivo de la carpeta storage
+        unlink(public_path('storage/' . $image->url_img));
     }
 
-    // Eliminar el registro de la base de datos
     $image->delete();
 
-    // Redirigir con un mensaje de éxito
     return redirect()->route('images.index')->with('success', 'Imagen eliminada con éxito');
 }
 
