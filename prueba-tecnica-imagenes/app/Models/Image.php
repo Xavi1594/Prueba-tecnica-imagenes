@@ -12,4 +12,5 @@ class Image extends Model
     protected $guarded = [
         'id',
     ];
+    protected $table = 'images';
 }

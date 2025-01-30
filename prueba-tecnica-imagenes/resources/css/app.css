@@ -1,3 +1,158 @@
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
-@tailwind utilities; */
+@tailwind utilities;
+
+:root {
+    --color-background: #FFFFFF;
+    --color-dark-blue: #0A1D3D;
+    --color-deep-blue: #6D84B4;
+    --color-cyan: #00B8A9;
+    --color-light-cyan: #A2F5F6;
+    --color-dark-black: #121212;
+    --color-accent: #FF4D4D;
+    --color-warning: #FFB84D;
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-dark-black);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h2, h5, .card-title {
+    color: var(--color-light-cyan);
+    font-weight: 600;
+}
+
+a {
+    color: var(--color-light-cyan);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-cyan);
+}
+
+.container {
+    padding: 2rem;
+    min-height: 100vh;
+}
+
+.card {
+    background-color: var(--color-deep-blue);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 1.5rem;
+    background-color: var(--color-dark-blue);
+}
+
+.card-title {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: var(--color-light-cyan);
+}
+
+button {
+    border-radius: 30px;
+    padding: 0.75rem 2rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+.btn-danger {
+    background-color: var(--color-accent);
+    border: none;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #E04F4D;
+}
+
+.btn-warning {
+    background-color: var(--color-warning);
+    border: none;
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #FF9B2A;
+}
+
+.message-box {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.message-box.success {
+    background-color: var(--color-light-cyan);
+    color: var(--color-dark-black);
+    border-left: 5px solid var(--color-cyan);
+}
+
+.message-box.error {
+    background-color: var(--color-dark-black);
+    color: var(--color-light-cyan);
+    border-left: 5px solid var(--color-deep-blue);
+}
+
+.form-control {
+    border-radius: 8px;
+    background-color: #F1F1F1;
+    border: none;
+    padding: 0.75rem;
+    color: var(--color-dark-blue);
+}
+
+textarea.form-control {
+    resize: vertical;
+}
+
+.card-img-top {
+    object-fit: cover;
+    width: 100%;
+    height: 250px;
+}
+
+.pagination {
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.message-box p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.min-h-screen {
+    min-height: 100vh;
+}
+
+.footer {
+    background-color: var(--color-dark-blue);
+    color: var(--color-light-cyan);
+    text-align: center;
+    padding: 3rem 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.footer p {
+    font-size: 1rem;
+    margin: 0;
+}
