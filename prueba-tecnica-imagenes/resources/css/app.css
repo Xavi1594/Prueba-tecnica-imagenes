@@ -3,11 +3,10 @@
 @tailwind utilities;
 
 :root {
+    --color-linkedin-blue: #0077B5;
+    --color-linkedin-dark-blue: #0A1D3D;
+    --color-linkedin-light-blue: #00A0DC;
     --color-background: #FFFFFF;
-    --color-dark-blue: #0A1D3D;
-    --color-deep-blue: #6D84B4;
-    --color-cyan: #00B8A9;
-    --color-light-cyan: #A2F5F6;
     --color-dark-black: #121212;
     --color-accent: #FF4D4D;
     --color-warning: #FFB84D;
@@ -22,18 +21,42 @@ body {
 }
 
 h2, h5, .card-title {
-    color: var(--color-light-cyan);
+    color: var(--color-dark-black);
     font-weight: 600;
+}
+@keyframes slide-up {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.animate-slide-up {
+    animation: slide-up 1s ease-out forwards;
+}
+
+h1, p {
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+
+
+a:hover {
+    background-color: #00A0DC;
 }
 
 a {
-    color: var(--color-light-cyan);
+    color: var(--color-linkedin-blue);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: var(--color-cyan);
+    color: var(--color-linkedin-light-blue);
 }
 
 .container {
@@ -42,7 +65,7 @@ a:hover {
 }
 
 .card {
-    background-color: var(--color-deep-blue);
+    background-color: var(--color-linkedin-dark-blue);
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -50,13 +73,13 @@ a:hover {
 
 .card-body {
     padding: 1.5rem;
-    background-color: var(--color-dark-blue);
+    background-color: var(--color-linkedin-dark-blue);
 }
 
 .card-title {
     font-size: 1.75rem;
     font-weight: bold;
-    color: var(--color-light-cyan);
+    color: var(--color-linkedin-light-blue);
 }
 
 button {
@@ -142,7 +165,7 @@ textarea.form-control {
 }
 
 .footer {
-    background-color: var(--color-dark-blue);
+    background-color: var(--color-linkedin-dark-blue);
     color: var(--color-light-cyan);
     text-align: center;
     padding: 3rem 1rem;

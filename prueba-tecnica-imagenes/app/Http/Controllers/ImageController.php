@@ -1,16 +1,18 @@
 <?php
-
 namespace App\Http\Controllers;
 use App\Models\Image;
+use Illuminate\Support\Facades\Storage;
+use App\Traits\ConfirmDeletion;
 
 
 use Illuminate\Http\Request;
 
 class ImageController extends Controller
 {
+    use ConfirmDeletion;
     public function index(Request $request)
     {
-        $images = Image::paginate(10);  // O usa all() si prefieres cargar todas
+        $images = Image::all();
     return view('images.index', compact('images'));
     }
 
@@ -44,7 +46,13 @@ class ImageController extends Controller
     }
 
 
-    public function show($id) {}
+    public function show($id)
+    {
+        $image = Image::findOrFail($id);
+        $confirmScript = $this->confirmDelete($id);
+
+        return view('images.show', compact('image', 'confirmScript')); // Pasa $confirmScript a la vista
+    }
 
     public function edit($id)
     {
@@ -76,19 +84,17 @@ class ImageController extends Controller
 
 
     public function destroy($id)
-{
-    $image = Image::findOrFail($id);
+    {
+        $image = Image::findOrFail($id);
 
-    // Eliminar la imagen del almacenamiento
-    if (file_exists(public_path('storage/' . $image->url_img))) {
-        unlink(public_path('storage/' . $image->url_img)); // Elimina el archivo de la carpeta storage
+        if (Storage::disk('public')->exists($image->url_img)) {
+            Storage::disk('public')->delete($image->url_img);
+        }
+
+        $image->delete();
+
+        return redirect()->route('images.index')->with('success', 'Imagen eliminada con éxito');
     }
 
-    // Eliminar el registro de la base de datos
-    $image->delete();
-
-    // Redirigir con un mensaje de éxito
-    return redirect()->route('images.index')->with('success', 'Imagen eliminada con éxito');
-}
 
 }

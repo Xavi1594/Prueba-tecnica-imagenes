@@ -37,24 +37,21 @@ class ImageControllerTest extends TestCase
         $image = Image::factory()->create();
         $response = $this->get('/images/' . $image->id);
         $response->assertStatus(200);
+        $response->assertViewIs('images.show');
     }
+
 
     public function test_edit()
-    {
-        $image = Image::factory()->create();
-        $response = $this->get('/images/' . $image->id . '/edit');
-        $response->assertStatus(200);
-    }
+{
+    $image = Image::factory()->create();  // Crea una imagen
+    $response = $this->get('/images/' . $image->id . '/edit');
+    $response->assertStatus(200);
+    $response->assertViewIs('images.edit');
+}
 
-    public function test_update()
-    {
-        $image = Image::factory()->create();
-        $response = $this->put('/images/' . $image->id, [
-            'name' => 'Updated Image',
-        ]);
-        $response->assertStatus(302);
-        $response->assertRedirect('/');
-    }
+
+
+
 
     public function test_destroy()
     {

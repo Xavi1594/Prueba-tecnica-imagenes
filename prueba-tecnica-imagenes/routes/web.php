@@ -9,5 +9,7 @@ Route::get('images/create', [ImageController::class, 'create'])->name('images.cr
 Route::post('images', [ImageController::class, 'store'])->name('images.store');
 Route::get('images/{id}/edit', [ImageController::class, 'edit'])->name('images.edit');
 Route::put('images/{id}/update', [ImageController::class, 'update'])->name('images.update');
+Route::get('images/{id}', [ImageController::class, 'show'])->name('images.show');
+
 
 
