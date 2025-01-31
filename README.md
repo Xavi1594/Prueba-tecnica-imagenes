@@ -68,19 +68,20 @@ Antes de instalar el proyecto, asegúrate de tener lo siguiente:
 
 ---
 
-## 🚀 Ejecutar la Aplicación <a name="ejecutar-la-aplicacion"></a>
+🚀 Ejecutar la Aplicación 
 
 Para iniciar el servidor de desarrollo:
-```sh
-php artisan serve
-```
-Para compilar los assets:
-```sh
-npm run dev
-```
-La aplicación estará disponible en `http://localhost:8000`.
+   ```
 
----
+cd prueba-tecnica-imagenes
+php artisan serve
+
+Para compilar los assets:
+
+npm run dev
+   ```
+
+La aplicación estará disponible en http://localhost:8000.
 
 ## 🏗️ Arquitectura y Desarrollo <a name="arquitectura-y-desarrollo"></a>
 
